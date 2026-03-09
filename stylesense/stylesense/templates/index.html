@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% block title %}StyleSense AI - Your Personal Fashion Stylist{% endblock %}
+{% block content %}
+
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+        <div class="hero-badge">✨ AI-Powered Fashion</div>
+        <h1 class="hero-title">Your Personal<br><span class="gradient-text">AI Fashion Stylist</span></h1>
+        <p class="hero-subtitle">Get personalized outfit recommendations, analyze your style, and stay ahead of fashion trends with the power of Generative AI.</p>
+        <div class="hero-actions">
+            <a href="/recommendations" class="btn btn-primary">
+                <i class="fas fa-wand-magic-sparkles"></i> Get Styled Now
+            </a>
+            <a href="/chat" class="btn btn-secondary">
+                <i class="fas fa-comments"></i> Chat with Stylist
+            </a>
+        </div>
+        <div class="hero-stats">
+            <div class="stat"><span>10K+</span> Outfits Generated</div>
+            <div class="stat"><span>5</span> AI Models</div>
+            <div class="stat"><span>100%</span> Personalized</div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="fashion-grid">
+            <div class="fashion-card card-1">
+                <i class="fas fa-shirt"></i>
+                <span>Smart Styling</span>
+            </div>
+            <div class="fashion-card card-2">
+                <i class="fas fa-camera"></i>
+                <span>Image Analysis</span>
+            </div>
+            <div class="fashion-card card-3">
+                <i class="fas fa-fire"></i>
+                <span>Trend Alerts</span>
+            </div>
+            <div class="fashion-card card-4">
+                <i class="fas fa-comments"></i>
+                <span>AI Chat</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <h2 class="section-title">Everything You Need to Look Amazing</h2>
+        <div class="features-grid">
+            <div class="feature-card" onclick="location.href='/recommendations'">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #667eea, #764ba2)">
+                    <i class="fas fa-wand-magic-sparkles"></i>
+                </div>
+                <h3>Personalized Recommendations</h3>
+                <p>AI-curated outfit suggestions based on your style preferences, body type, budget, and occasion.</p>
+                <span class="feature-tag">Powered by Gemini</span>
+            </div>
+            <div class="feature-card" onclick="location.href='/analysis'">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c)">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+                <h3>Style Analysis</h3>
+                <p>Upload any outfit photo and get detailed analysis, color palette insights, and improvement suggestions.</p>
+                <span class="feature-tag">Powered by Gemini Vision</span>
+            </div>
+            <div class="feature-card" onclick="location.href='/trends'">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe)">
+                    <i class="fas fa-chart-trending-up"></i>
+                </div>
+                <h3>Trend Intelligence</h3>
+                <p>Stay ahead with AI-powered trend analysis across seasons, categories, and global fashion weeks.</p>
+                <span class="feature-tag">Real-time Insights</span>
+            </div>
+            <div class="feature-card" onclick="location.href='/chat'">
+                <div class="feature-icon" style="background: linear-gradient(135deg, #43e97b, #38f9d7)">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>AI Stylist Chat</h3>
+                <p>Have a conversation with your personal AI stylist anytime. Ask anything about fashion and style.</p>
+                <span class="feature-tag">Powered by Groq/LLaMA</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="how-it-works">
+    <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <div class="step-num">01</div>
+                <h3>Share Your Style</h3>
+                <p>Tell us your preferences, occasion, budget, and style goals.</p>
+            </div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="step">
+                <div class="step-num">02</div>
+                <h3>AI Magic Happens</h3>
+                <p>Multiple AI models analyze and generate personalized recommendations.</p>
+            </div>
+            <div class="step-arrow"><i class="fas fa-arrow-right"></i></div>
+            <div class="step">
+                <div class="step-num">03</div>
+                <h3>Look Amazing</h3>
+                <p>Get curated outfits, styling tips, and trend insights tailored just for you.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

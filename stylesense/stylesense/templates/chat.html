@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block title %}StyleSense - AI Stylist Chat{% endblock %}
+{% block content %}
+
+<div class="chat-layout">
+    <div class="chat-sidebar glass-card">
+        <div class="stylist-profile">
+            <div class="stylist-avatar">
+                <i class="fas fa-robot"></i>
+                <span class="online-dot"></span>
+            </div>
+            <div>
+                <h3>StyleSense AI</h3>
+                <p>Your Personal Stylist</p>
+            </div>
+        </div>
+
+        <div class="quick-prompts">
+            <h4>Quick Questions</h4>
+            <button class="quick-btn" onclick="sendQuickPrompt('What should I wear to a job interview at a creative agency?')">
+                🏢 Interview outfit ideas
+            </button>
+            <button class="quick-btn" onclick="sendQuickPrompt('Help me build a minimalist capsule wardrobe for spring')">
+                👗 Capsule wardrobe tips
+            </button>
+            <button class="quick-btn" onclick="sendQuickPrompt('What are the key color trends for this season?')">
+                🎨 Season color trends
+            </button>
+            <button class="quick-btn" onclick="sendQuickPrompt('How do I dress to look taller and slimmer?')">
+                ✨ Body flattering tips
+            </button>
+            <button class="quick-btn" onclick="sendQuickPrompt('Suggest a stylish date night outfit for a dinner restaurant')">
+                🌙 Date night looks
+            </button>
+            <button class="quick-btn" onclick="sendQuickPrompt('What are sustainable fashion brands worth trying?')">
+                🌿 Sustainable fashion
+            </button>
+        </div>
+
+        <button class="btn btn-ghost btn-full btn-sm" onclick="clearChat()">
+            <i class="fas fa-trash"></i> Clear Chat
+        </button>
+    </div>
+
+    <div class="chat-main">
+        <div class="chat-messages" id="chatMessages">
+            <div class="message assistant-message">
+                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-content">
+                    <p>Hi! I'm your StyleSense AI stylist! 👗✨</p>
+                    <p>I'm here to help you with outfit ideas, style advice, trend insights, and everything fashion. What would you like help with today?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-area glass-card">
+            <div class="chat-input-row">
+                <textarea 
+                    id="chatInput" 
+                    placeholder="Ask your stylist anything... (e.g. 'What should I wear to a wedding in Italy?')"
+                    onkeydown="handleChatKeydown(event)"
+                    rows="1"
+                ></textarea>
+                <button class="btn btn-primary send-btn" onclick="sendMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            <div class="chat-hints">
+                <span><i class="fas fa-keyboard"></i> Press Enter to send, Shift+Enter for new line</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/chat.js"></script>
+{% endblock %}

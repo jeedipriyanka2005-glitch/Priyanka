@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}StyleSense - Fashion Trends{% endblock %}
+{% block content %}
+
+<div class="page-hero">
+    <h1><i class="fas fa-fire"></i> Fashion Trend Intelligence</h1>
+    <p>AI-powered insights into the latest fashion trends worldwide</p>
+</div>
+
+<div class="container">
+    <div class="trends-controls glass-card">
+        <div class="controls-row">
+            <div class="form-group">
+                <label>Category</label>
+                <div class="category-chips" id="categoryChips">
+                    <span class="chip active" data-value="women">👗 Women's</span>
+                    <span class="chip" data-value="men">👔 Men's</span>
+                    <span class="chip" data-value="streetwear">🧢 Streetwear</span>
+                    <span class="chip" data-value="accessories">👜 Accessories</span>
+                    <span class="chip" data-value="footwear">👟 Footwear</span>
+                    <span class="chip" data-value="sustainable">🌿 Sustainable</span>
+                    <span class="chip" data-value="luxury">💎 Luxury</span>
+                    <span class="chip" data-value="activewear">🏃 Activewear</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Season</label>
+                <select class="form-select" id="trendSeason">
+                    <option value="Spring/Summer 2025">Spring/Summer 2025</option>
+                    <option value="Fall/Winter 2025">Fall/Winter 2025</option>
+                    <option value="current">Current Season</option>
+                    <option value="Resort 2025">Resort 2025</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="getTrends()">
+                <i class="fas fa-search"></i> Explore Trends
+            </button>
+        </div>
+    </div>
+
+    <div id="trendsOutput" class="output-area trends-output">
+        <div class="empty-state">
+            <i class="fas fa-chart-line"></i>
+            <h3>Discover What's Trending</h3>
+            <p>Select a category and season to get AI-powered trend insights, key pieces, and styling guidance.</p>
+            <div class="trend-preview-chips">
+                <span>Color of the Season</span>
+                <span>Must-Have Pieces</span>
+                <span>Key Silhouettes</span>
+                <span>Pattern Play</span>
+                <span>Celebrity Looks</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/trends.js"></script>
+{% endblock %}

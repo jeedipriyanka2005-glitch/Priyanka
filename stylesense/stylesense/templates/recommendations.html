@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}StyleSense - Personalized Recommendations{% endblock %}
+{% block content %}
+
+<div class="page-hero">
+    <h1><i class="fas fa-wand-magic-sparkles"></i> Personalized Recommendations</h1>
+    <p>Tell us about your style and we'll craft perfect outfits just for you</p>
+</div>
+
+<div class="container">
+    <div class="two-col">
+        <div class="form-panel glass-card">
+            <h2 class="panel-title">Your Style Profile</h2>
+            
+            <div class="form-group">
+                <label>Style Vibe</label>
+                <div class="chip-group" id="styleChips">
+                    <span class="chip" data-field="style" data-value="Minimalist">Minimalist</span>
+                    <span class="chip" data-field="style" data-value="Bohemian">Bohemian</span>
+                    <span class="chip" data-field="style" data-value="Streetwear">Streetwear</span>
+                    <span class="chip" data-field="style" data-value="Classic">Classic</span>
+                    <span class="chip" data-field="style" data-value="Romantic">Romantic</span>
+                    <span class="chip" data-field="style" data-value="Edgy">Edgy</span>
+                    <span class="chip" data-field="style" data-value="Athleisure">Athleisure</span>
+                    <span class="chip" data-field="style" data-value="Vintage">Vintage</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Occasion</label>
+                <div class="chip-group">
+                    <span class="chip" data-field="occasion" data-value="Everyday Casual">Everyday</span>
+                    <span class="chip" data-field="occasion" data-value="Work/Office">Work</span>
+                    <span class="chip" data-field="occasion" data-value="Date Night">Date Night</span>
+                    <span class="chip" data-field="occasion" data-value="Formal Event">Formal</span>
+                    <span class="chip" data-field="occasion" data-value="Beach/Vacation">Vacation</span>
+                    <span class="chip" data-field="occasion" data-value="Festival">Festival</span>
+                    <span class="chip" data-field="occasion" data-value="Gym">Gym</span>
+                    <span class="chip" data-field="occasion" data-value="Brunch">Brunch</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Season</label>
+                <div class="chip-group">
+                    <span class="chip" data-field="season" data-value="Spring">🌸 Spring</span>
+                    <span class="chip" data-field="season" data-value="Summer">☀️ Summer</span>
+                    <span class="chip" data-field="season" data-value="Fall">🍂 Fall</span>
+                    <span class="chip" data-field="season" data-value="Winter">❄️ Winter</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Color Palette</label>
+                <div class="chip-group">
+                    <span class="chip" data-field="colors" data-value="Neutral tones (beige, white, black, grey)">Neutrals</span>
+                    <span class="chip" data-field="colors" data-value="Earth tones (brown, rust, olive, cream)">Earth Tones</span>
+                    <span class="chip" data-field="colors" data-value="Bold and vibrant colors">Bold Colors</span>
+                    <span class="chip" data-field="colors" data-value="Pastel and soft tones">Pastels</span>
+                    <span class="chip" data-field="colors" data-value="Monochrome (all one color)">Monochrome</span>
+                    <span class="chip" data-field="colors" data-value="Dark and moody tones">Dark Tones</span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Budget Range</label>
+                    <select class="form-select" id="budget">
+                        <option value="budget-friendly (under $100)">Budget (under $100)</option>
+                        <option value="moderate ($100-$300)" selected>Moderate ($100-$300)</option>
+                        <option value="mid-range ($300-$600)">Mid-range ($300-$600)</option>
+                        <option value="luxury ($600+)">Luxury ($600+)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Gender</label>
+                    <select class="form-select" id="gender">
+                        <option value="Women's fashion">Women</option>
+                        <option value="Men's fashion">Men</option>
+                        <option value="unisex/gender-neutral">Non-binary</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Body Type</label>
+                <div class="chip-group">
+                    <span class="chip" data-field="body_type" data-value="Hourglass">Hourglass</span>
+                    <span class="chip" data-field="body_type" data-value="Pear/Triangle">Pear</span>
+                    <span class="chip" data-field="body_type" data-value="Apple/Round">Apple</span>
+                    <span class="chip" data-field="body_type" data-value="Rectangle/Athletic">Athletic</span>
+                    <span class="chip" data-field="body_type" data-value="Inverted Triangle">Inverted Triangle</span>
+                </div>
+            </div>
+
+            <button class="btn btn-primary btn-full" onclick="getRecommendations()">
+                <i class="fas fa-sparkles"></i> Generate My Outfits
+            </button>
+        </div>
+
+        <div class="results-panel">
+            <div id="recommendationsOutput" class="output-area">
+                <div class="empty-state">
+                    <i class="fas fa-shirt"></i>
+                    <h3>Your Outfits Will Appear Here</h3>
+                    <p>Fill in your style preferences and click Generate to get personalized outfit recommendations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src="/static/js/recommendations.js"></script>
+{% endblock %}

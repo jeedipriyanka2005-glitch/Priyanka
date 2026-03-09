@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}StyleSense AI{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <i class="fas fa-sparkles"></i>
+                StyleSense <span>AI</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link {% if request.url.path == '/' %}active{% endif %}">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="/recommendations" class="nav-link {% if '/recommendations' in request.url.path %}active{% endif %}">
+                    <i class="fas fa-wand-magic-sparkles"></i> Recommendations
+                </a>
+                <a href="/analysis" class="nav-link {% if '/analysis' in request.url.path %}active{% endif %}">
+                    <i class="fas fa-camera"></i> Style Analysis
+                </a>
+                <a href="/trends" class="nav-link {% if '/trends' in request.url.path %}active{% endif %}">
+                    <i class="fas fa-fire"></i> Trends
+                </a>
+                <a href="/chat" class="nav-link {% if '/chat' in request.url.path %}active{% endif %}">
+                    <i class="fas fa-comments"></i> AI Stylist
+                </a>
+            </div>
+            <button class="nav-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>StyleSense AI &copy; 2025 &mdash; Powered by Gemini, Groq & HuggingFace</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/main.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Stylist Chat – StyleSense AI</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-icon">✦</span>
+                <span class="brand-name">StyleSense</span>
+                <span class="brand-tag">AI</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/analyze" class="nav-link">Analyze</a>
+                <a href="/trends" class="nav-link">Trends</a>
+                <a href="/stylist" class="nav-link active">AI Stylist</a>
+            </div>
+            <div class="nav-actions">
+                <select id="chatProvider" class="provider-select-sm">
+                    <option value="gemini">🌟 Gemini</option>
+                    <option value="groq">⚡ Groq</option>
+                </select>
+                <button class="btn-nav-outline" onclick="clearChat()">Clear Chat</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="chat-layout">
+        <!-- Sidebar -->
+        <div class="chat-sidebar">
+            <div class="sidebar-header">
+                <div class="stylist-avatar">✦</div>
+                <div>
+                    <h3>StyleSense AI</h3>
+                    <span class="online-badge">● Online</span>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h4>Quick Questions</h4>
+                <div class="quick-questions" id="quickQuestions">
+                    <button onclick="sendQuick('What outfit should I wear for a job interview?')">Job interview outfit?</button>
+                    <button onclick="sendQuick('How do I build a capsule wardrobe on a budget?')">Capsule wardrobe tips?</button>
+                    <button onclick="sendQuick('What are the top fashion trends this season?')">Current trends?</button>
+                    <button onclick="sendQuick('How do I dress for my body type?')">Dress for body type?</button>
+                    <button onclick="sendQuick('What colors work best together?')">Color combinations?</button>
+                    <button onclick="sendQuick('Can you suggest a date night outfit?')">Date night outfit?</button>
+                    <button onclick="sendQuick('How to transition summer to fall wardrobe?')">Season transition?</button>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <h4>Style Tips</h4>
+                <div class="daily-tip">
+                    <p>💡 <em>Invest in quality basics — a well-fitted white shirt can be styled 10+ different ways.</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-main">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message ai-message">
+                    <div class="message-avatar">✦</div>
+                    <div class="message-bubble">
+                        <p>Hello! I'm your personal AI fashion stylist powered by StyleSense. ✨</p>
+                        <p>I can help you with:</p>
+                        <ul>
+                            <li>🎨 Personalized outfit recommendations</li>
+                            <li>📈 Latest fashion trend insights</li>
+                            <li>💡 Styling tips for any occasion</li>
+                            <li>🌈 Color coordination advice</li>
+                            <li>👗 Wardrobe building guidance</li>
+                        </ul>
+                        <p>What would you like to know about fashion today?</p>
+                        <span class="message-time">Just now</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="chat-input-wrapper">
+                    <textarea 
+                        id="chatInput" 
+                        placeholder="Ask me anything about fashion, outfits, trends..." 
+                        rows="1"
+                        onkeydown="handleChatKey(event)"
+                        oninput="autoResize(this)"
+                    ></textarea>
+                    <button class="send-btn" onclick="sendMessage()" id="sendBtn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <p class="chat-hint">Press Enter to send, Shift+Enter for new line</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="loading-overlay" id="loadingOverlay" style="display:none">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>StyleSense is thinking...</p>
+        </div>
+    </div>
+
+    <script src="/static/js/chat.js"></script>
+</body>
+</html>
